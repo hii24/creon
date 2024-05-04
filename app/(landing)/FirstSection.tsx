@@ -18,9 +18,7 @@ export const FirstSection = () => (
 			<div className='absolute h-screen w-screen bg-gradient-to-b from-[rgba(171,35,255,0.2)] via-[rgba(59,139,255,0.2)] to-[#000000]' />
 		</div>
 		<NavigationBar />
-		{
-			//  25% for adaptability since 480px out of 1920 is 25%
-		}
+
 		<div
 			className={cn(
 				'absolute bottom-20 mt-auto flex w-full items-center px-[2%] md:px-[8%]'
@@ -29,13 +27,17 @@ export const FirstSection = () => (
 				<div className='mt-auto'>
 					<h1
 						className={cn(
-							`text-2xl md:text-5xl xl:text-6xl`,
+							`text-md uppercase md:text-5xl xl:text-6xl`,
 							monument.className
 						)}>
 						The world's first <br /> platform for Tokenizing <br /> AI
 						blockchain projects
 					</h1>
-					<h3 className='gradientText mt-[40px] w-fit border-b border-t p-1 text-md font-bold xl:text-xl'>
+					<h3
+						className='gradientText mt-[40px] w-fit border-b border-t p-1 text-md font-bold xl:text-xl'
+						style={{
+							borderImage: 'linear-gradient(to right, #3D8BFF, #AB23FF) 1'
+						}}>
 						Hold the Creon Pass NFT and earn passive income from AI Tools
 					</h3>
 				</div>

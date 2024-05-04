@@ -10,6 +10,7 @@ import {
 } from '@/components/Sheet'
 import { Menu, X } from 'lucide-react'
 import * as React from 'react'
+import { SocialMediaLinks } from '@/components/Footer'
 
 const navigationElements = [
 	{
@@ -34,12 +35,12 @@ const navigationElements = [
 ]
 
 export const NavigationBar = () => (
-	<div className='z-50 mx-auto flex items-center justify-between px-[5%] pt-7'>
+	<div className='z-50 mx-auto flex items-center justify-between px-[2%] pt-7 md:px-[5%]'>
 		<Image
 			priority
 			objectFit='contain'
 			width={140}
-			className='z-50'
+			className='z-[10000000] h-[25px] w-[100px] md:h-[35px] md:w-[140px]'
 			height={35}
 			src={Logo}
 			alt='Logo'
@@ -52,7 +53,7 @@ export const NavigationBar = () => (
 							{element.title}
 						</a>
 						{element.isSoon ? (
-							<div className='z-50 rounded-full bg-black px-1.5 py-0.5'>
+							<div className='z-50 flex h-[18px] items-center rounded-full bg-black px-1.5 text-[10px] font-bold uppercase'>
 								<p className=' gradientText'>Soon</p>
 							</div>
 						) : null}
@@ -81,27 +82,43 @@ export const NavigationBar = () => (
 							</SheetClose>
 						</div>
 					</SheetHeader>
-					<div className='mt-[48px] flex flex-col gap-4'>
-						{navigationElements.map(element => (
-							<div
-								className='flex  gap-1 border-t-2 border-greyLine pt-4'
-								key={element.link}>
-								<SheetClose className='w-full'>
-									<a href={element.link} className='w-full'>
-										<div className='flex'>
-											<p className=' flex text-md  text-white'>
-												{element.title}
-											</p>
-											{element.isSoon ? (
-												<div className='z-50 rounded-full bg-black px-1.5'>
-													<p className=' gradientText'>Soon</p>
-												</div>
-											) : null}
-										</div>
-									</a>
-								</SheetClose>
-							</div>
-						))}
+					<div className=' flex h-full flex-col justify-between'>
+						<div className='mt-[48px] flex flex-col gap-4'>
+							{navigationElements.map(element => (
+								<div
+									className='flex  gap-1 border-t-2 border-greyLine pt-4'
+									key={element.link}>
+									<SheetClose className='w-full'>
+										<a href={element.link} className='w-full'>
+											<div className='flex'>
+												<p className=' flex text-md  text-white'>
+													{element.title}
+												</p>
+												{element.isSoon ? (
+													<div className='z-50 rounded-full bg-black px-1.5'>
+														<p className=' gradientText'>Soon</p>
+													</div>
+												) : null}
+											</div>
+										</a>
+									</SheetClose>
+								</div>
+							))}
+						</div>
+						<div className=' flex gap-2'>
+							{SocialMediaLinks.map(element => (
+								<a href={element.link}>
+									<Image
+										className='cursor-pointer'
+										src={element.icon}
+										width={32}
+										height={32}
+										key={element.title}
+										alt={element.title}
+									/>
+								</a>
+							))}
+						</div>
 					</div>
 				</SheetContent>
 			</Sheet>
